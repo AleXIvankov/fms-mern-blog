@@ -10,12 +10,18 @@ export default function Header() {
     <Navbar className="border-b-2">
       <Link
         to="/"
-        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
+        className="self-center  whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        <span className="px-2 py-1 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 rounded-lg text-white">
-          FMS
-        </span>
-        Blog
+        <div className="flex flex-row  items-end">
+          <span className="px-2 py-1 ">
+            <img
+              src="../../public/img/logo-no-background.png"
+              alt="FMS-logo"
+              className="w-13 h-8 rounded-lg"
+            />
+          </span>
+          Blog
+        </div>
       </Link>
       <form>
         <TextInput
