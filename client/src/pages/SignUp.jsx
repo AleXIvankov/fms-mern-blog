@@ -1,15 +1,50 @@
-import { Link } from "react-router-dom";
-import { Label } from "flowbite-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Alert, Label, Spinner } from "flowbite-react";
 import { TextInput } from "flowbite-react";
 import { Button } from "flowbite-react";
+import { useState } from "react";
+
 export default function SignUp() {
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, SetLoading] = useState(false);
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.username || !formData.email || !formData.password) {
+      return setErrorMessage("Merci de remplir tous les champs");
+    }
+    try {
+      SetLoading(true);
+      setErrorMessage(null);
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        return setErrorMessage(data.message);
+      }
+      SetLoading(false);
+      if (res.ok) {
+        navigate("/signin");
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+      SetLoading(false);
+    }
+  };
   return (
     <div className="min-h-screen mt-20 ">
       <div className=" flex p-3 w-max-3xl mx-auto flex-col justify-center lg:items-center md:flex-row md:items-center gap-10">
         {/* left */}
         <div className="flex-1 max-w-xl">
           <Link to="/" className="  font-bold dark:text-white text-4xl">
-            <span className="px-2 py-1 bg-gradient-to-r from-blue-300 via-blue-700 to-orange-400 rounded-lg text-white">
+            <span className="px-2 py-1 bg-gradient-to-r from-orange-400 via-blue-200 to-blue-700 rounded-lg text-white">
               FMS
             </span>
             Blog
@@ -21,19 +56,25 @@ export default function SignUp() {
         </div>
         {/* right */}
         <div className="flex-1 max-w-lg">
-          <form className="flex flex-col gap-4  ">
+          <form className="flex flex-col gap-4  " onSubmit={handleSubmit}>
             <h1 className="text-lg text-black text-center">Inscription</h1>
             <Label className="text-xs text-gray-400">
               Login:
-              <TextInput type="text" id="username" placeholder="Login..." />
+              <TextInput
+                type="text"
+                id="username"
+                placeholder="Login..."
+                onChange={handleChange}
+              />
             </Label>
 
             <Label className="text-xs text-gray-400">
               Votre email:
               <TextInput
-                type="text"
+                type="email"
                 placeholder="name@company.com"
                 id="email"
+                onChange={handleChange}
               />
             </Label>
             <Label className="text-xs text-gray-400">
@@ -42,11 +83,25 @@ export default function SignUp() {
                 type="password"
                 placeholder="Mot de passe..."
                 id="password"
+                onChange={handleChange}
               />
             </Label>
             <div className="flex gap-8 justify-center mt-4">
-              <Button gradientDuoTone="pinkToOrange" outline pill type="submit">
-                Confirmer l'inscription
+              <Button
+                gradientDuoTone="pinkToOrange"
+                outline
+                pill
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <Spinner size="sm" />
+                    <span className="pl-3">Loading...</span>
+                  </>
+                ) : (
+                  `Confirmer l'inscription`
+                )}
               </Button>
             </div>
             <Link
@@ -56,6 +111,11 @@ export default function SignUp() {
               Je suis déjà inscrit
             </Link>
           </form>
+          {errorMessage && (
+            <Alert className="mt-5 mx-auto max-w-lg" color="failure">
+              {errorMessage}
+            </Alert>
+          )}
         </div>
       </div>
     </div>
