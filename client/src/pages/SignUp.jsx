@@ -105,7 +105,7 @@ export default function SignUp() {
               </Button>
             </div>
             <Link
-              to="/Sign-in"
+              to="/Signin"
               className="flex justify-center items-center text-xs text-black"
             >
               Je suis déjà inscrit
