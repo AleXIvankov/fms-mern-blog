@@ -39,7 +39,7 @@ export default function Header() {
         <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
           <FaMoon />
         </Button>
-        <Link to="/Sign-in">
+        <Link to="/SignIn">
           <Button gradientDuoTone="purpleToBlue" outline pill>
             Se connecter
           </Button>
@@ -56,8 +56,8 @@ export default function Header() {
         <Navbar.Link active={path === "/Projects"} as={"div"}>
           <Link to="/Projects">Posts</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/SignIn"} as={"div"}>
-          <Link to="/SignIn">Se connecter</Link>
+        <Navbar.Link active={path === "/SignUp"} as={"div"}>
+          <Link to="/signup">S'inscrire</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
