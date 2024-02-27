@@ -15,7 +15,7 @@ export default function Header() {
         <div className="flex flex-row  items-end">
           <span className="px-2 py-1 ">
             <img
-              src="../../public/img/logo-no-background.png"
+              src="../../img/logo-no-background.png"
               alt="FMS-logo"
               className="w-13 h-8 rounded-lg"
             />
