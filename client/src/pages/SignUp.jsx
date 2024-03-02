@@ -3,6 +3,7 @@ import { Alert, Label, Spinner } from "flowbite-react";
 import { TextInput } from "flowbite-react";
 import { Button } from "flowbite-react";
 import { useState } from "react";
+import OAuth from "../components/OAuth";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -55,7 +56,7 @@ export default function SignUp() {
           </p>
         </div>
         {/* right */}
-        <div className="flex-1 max-w-lg">
+        <div className="flex-1 max-w-lg items-center">
           <form className="flex flex-col gap-4  " onSubmit={handleSubmit}>
             <h1 className="text-lg text-black text-center">Inscription</h1>
             <Label className="text-xs text-gray-400">
@@ -86,7 +87,7 @@ export default function SignUp() {
                 onChange={handleChange}
               />
             </Label>
-            <div className="flex gap-8 justify-center mt-4">
+            <div className="flex mx-auto   gap-8 justify-center mt-4">
               <Button
                 gradientDuoTone="pinkToOrange"
                 outline
@@ -103,6 +104,9 @@ export default function SignUp() {
                   `Confirmer l'inscription`
                 )}
               </Button>
+              <div className="items-center">
+                <OAuth />
+              </div>
             </div>
             <Link
               to="/Signin"
