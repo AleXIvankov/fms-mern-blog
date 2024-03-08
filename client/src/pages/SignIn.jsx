@@ -107,7 +107,7 @@ export default function SignIn() {
             </div>
             <Link
               to="/SignUp"
-              className="flex justify-center items-center text-xs text-black"
+              className="flex justify-center items-center text-xs text-pink-500"
             >
               Je n'ai pas de compte
             </Link>
