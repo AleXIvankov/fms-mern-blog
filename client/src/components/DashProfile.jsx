@@ -21,9 +21,10 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 export default function DashProfile() {
-  const { currentUser, error } = useSelector((state) => state.user);
+  const { currentUser, error, loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const filePickerRef = useRef();
 
@@ -236,9 +237,28 @@ export default function DashProfile() {
           placeholder="Mot de pass"
           onChange={handleChange}
         />
-        <Button type="submit" gradientDuoTone="purpleToPink" pill outline>
-          Actualiser
+        <Button
+          type="submit"
+          gradientDuoTone="purpleToPink"
+          pill
+          outline
+          disabled={loading || imageFileUploading}
+        >
+          {loading ? "Loading..." : "Actualiser"}
         </Button>
+        {currentUser.isAdmin && (
+          <Link to={"/create-post"}>
+            <Button
+              type="button"
+              gradientDuoTone="purpleToBlue"
+              outline
+              pill
+              className="w-full"
+            >
+              Créer un post
+            </Button>
+          </Link>
+        )}
       </form>
       <div className="text-pink-500 text-sm mt-4 flex justify-between">
         <span onClick={() => setShowModal(true)} className="cursor-pointer">
@@ -280,7 +300,7 @@ export default function DashProfile() {
               <Button color="failure" onClick={handleDeleteUser}>
                 Oui, je suis sûr
               </Button>
-              <Button onClick={() => setShowModal(false)}></Button>
+              <Button onClick={() => setShowModal(false)}>Non</Button>
             </div>
           </div>
         </Modal.Body>
