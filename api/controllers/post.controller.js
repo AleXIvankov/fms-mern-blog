@@ -1,8 +1,9 @@
 import Post from "../models/post.model.js";
 import { errorHandler } from "../utils/error.js";
 
+// create post
 export const create = async (req, res, next) => {
-  if (!req.user) {
+  if (!req.user.isAdmin) {
     return next(errorHandler(403, `Vous n'êtes pas autorisé à créer un post`));
   }
   if (!req.body.title || !req.body.content) {
@@ -28,6 +29,7 @@ export const create = async (req, res, next) => {
   }
 };
 
+//get a post
 export const getposts = async (req, res, next) => {
   try {
     const startIndex = parseInt(req.query.startIndex) || 0;
@@ -63,6 +65,21 @@ export const getposts = async (req, res, next) => {
       totalPosts,
       lastMonthPosts,
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// delete post
+export const deletepost = async (req, res, next) => {
+  if (!req.user.isAdmin || req.user.id !== req.params.userId) {
+    return next(
+      errorHandler(403, `Vous n'êtes pas autorisé à supprimer cet article`)
+    );
+  }
+  try {
+    await Post.findByIdAndDelete(req.params.postId);
+    res.status(200).json("Post a été supprimé");
   } catch (error) {
     next(error);
   }
