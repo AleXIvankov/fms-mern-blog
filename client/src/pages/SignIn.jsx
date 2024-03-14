@@ -64,7 +64,9 @@ export default function SignIn() {
         {/* right */}
         <div className="flex-1 max-w-lg">
           <form className="flex flex-col gap-4  " onSubmit={handleSubmit}>
-            <h1 className="text-lg text-black text-center">Connexion</h1>
+            <h1 className="text-lg text-black dark:text-gray-200 text-center">
+              Connexion
+            </h1>
             <Label className="text-xs text-gray-400">
               Login:
               <TextInput

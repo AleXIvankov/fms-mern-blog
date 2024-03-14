@@ -58,7 +58,9 @@ export default function SignUp() {
         {/* right */}
         <div className="flex-1 max-w-lg items-center">
           <form className="flex flex-col gap-4  " onSubmit={handleSubmit}>
-            <h1 className="text-lg text-black text-center">Inscription</h1>
+            <h1 className="text-lg text-black dark:text-gray-200 text-center">
+              Inscription
+            </h1>
             <Label className="text-xs text-gray-400">
               Login:
               <TextInput
