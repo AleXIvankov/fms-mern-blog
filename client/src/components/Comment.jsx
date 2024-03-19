@@ -111,10 +111,10 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                 <FaThumbsUp />
               </button>
               <p className="text-gray-400">
-                {comment.numberOfLikes > 0 &&
-                  comment.numberOfLikes +
+                {comment.numberofLikes > 0 &&
+                  comment.numberofLikes +
                     " " +
-                    (comment.numberOfLikes === 1 ? "like" : "likes")}
+                    (comment.numberofLikes === 1 ? "like" : "likes")}
               </p>
               {currentUser && currentUser._id === comment.userId && (
                 <button
