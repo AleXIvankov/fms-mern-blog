@@ -28,9 +28,13 @@ export default function HomePage() {
         </h1>
         <p className="text-gray-500 dark:text-gray-400 text-xs p-4 max-w-2xl sm:text-sm ">
           Plongez dans le monde dynamique de notre travail quotidien sur la FMS.{" "}
-          <br /> Ensemble, nous partageons nos connaissances, nos réussites et
-          nos défis, dans le but de perfectionner nos compétences et d'atteindre
-          l'excellence opérationnelle.
+          <br />{" "}
+          <i>
+            {" "}
+            "Ensemble, nous partageons nos connaissances, nos réussites et nos
+            défis, dans le but de perfectionner nos compétences et d'atteindre
+            l'excellence opérationnelle."
+          </i>
         </p>
         <Link
           to="/search"

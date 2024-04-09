@@ -111,7 +111,7 @@ export default function Header() {
             <Dropdown.Item onClick={handleSignout}>Déconnexion</Dropdown.Item>
           </Dropdown>
         ) : (
-          <Link to="/SignIn">
+          <Link to="/signin">
             <Button gradientDuoTone="purpleToBlue" outline pill>
               Se connecter
             </Button>
@@ -124,13 +124,13 @@ export default function Header() {
           <Link to="/">Page d'accueil</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/Preventif"} as={"div"}>
-          <Link to="/Preventif">Preventif</Link>
+          <Link to="/Preventif">Préventif / 5S</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/Contact"} as={"div"}>
-          <Link to="/contact">Contact</Link>
+          <Link to="/Contact">Contact</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/SignUp"} as={"div"}>
-          <Link to="/signup">S'inscrire</Link>
+          <Link to="/SignUp">S'inscrire</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

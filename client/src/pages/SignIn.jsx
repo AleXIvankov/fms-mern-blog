@@ -57,8 +57,9 @@ export default function SignIn() {
             Blog
           </Link>
           <p className="text-sm mt-5">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus vel
-            fugiat eveniet harum alias
+            Ensemble, nous partageons nos connaissances, nos réussites et nos
+            défis, dans le but de perfectionner nos compétences et d'atteindre
+            l'excellence opérationnelle.
           </p>
         </div>
         {/* right */}
