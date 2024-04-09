@@ -121,7 +121,7 @@ export default function Preventif() {
               <Table.Body className="divide-y">
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                   <Table.Cell className="p-4">
-                    <Checkbox />
+                    <Checkbox className="dark:text-indigo-600 text-sky-500 bg-gray-100 border-gray-300 rounded focus:ring-sky-200 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                     Station N°1
@@ -129,7 +129,7 @@ export default function Preventif() {
                 </Table.Row>
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                   <Table.Cell className="p-4">
-                    <Checkbox />
+                    <Checkbox className="dark:text-indigo-600 text-sky-500 bg-gray-100 border-gray-300 rounded focus:ring-sky-200 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                     Station N°2
@@ -137,7 +137,7 @@ export default function Preventif() {
                 </Table.Row>
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                   <Table.Cell className="p-4">
-                    <Checkbox />
+                    <Checkbox className="dark:text-indigo-600 text-sky-500 bg-gray-100 border-gray-300 rounded focus:ring-sky-200 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                   </Table.Cell>
                   <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                     Station N°3
