@@ -75,9 +75,11 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className="w-12 h-10 lg:hidden" color="gray" pill>
-        <AiOutlineSearch />
-      </Button>
+      <Link to="/search">
+        <Button className="w-12 h-10 lg:hidden" color="gray" pill>
+          <AiOutlineSearch />
+        </Button>
+      </Link>
 
       <div className="flex gap-2 md:order-2">
         <Button
@@ -124,8 +126,8 @@ export default function Header() {
         <Navbar.Link active={path === "/Preventif"} as={"div"}>
           <Link to="/Preventif">Preventif</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/Projects"} as={"div"}>
-          <Link to="/Projects">Posts</Link>
+        <Navbar.Link active={path === "/Contact"} as={"div"}>
+          <Link to="/contact">Contact</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/SignUp"} as={"div"}>
           <Link to="/signup">S'inscrire</Link>

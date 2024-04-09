@@ -15,7 +15,7 @@ export default function HomePage() {
     fetchPosts();
   }, []);
   return (
-    <div>
+    <div className="flex flex-col text-left">
       <div className=" flex flex-col gap-5 lg:p-24 p-5 max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold lg:text-6xl">
           Bienvenue sur{" "}
@@ -26,8 +26,11 @@ export default function HomePage() {
             Blog
           </Link>{" "}
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        <p className="text-gray-500 dark:text-gray-400 text-xs p-4 max-w-2xl sm:text-sm ">
+          Plongez dans le monde dynamique de notre travail quotidien sur la FMS.{" "}
+          <br /> Ensemble, nous partageons nos connaissances, nos réussites et
+          nos défis, dans le but de perfectionner nos compétences et d'atteindre
+          l'excellence opérationnelle.
         </p>
         <Link
           to="/search"
@@ -36,7 +39,8 @@ export default function HomePage() {
           Afficher tous les articles
         </Link>
       </div>
-      <div className="p-3 bg-amber-50 dark:bg-indigo-900 w-11/12 mx-auto rounded-lg">
+
+      <div className="p-3 max-w-4xl bg-amber-50 dark:bg-indigo-900 w-11/12 mx-auto rounded-lg">
         <CallToAction />
       </div>
       <div className="max-w-6xl mx-auto flex flex-col py-5 ">
