@@ -1,10 +1,12 @@
-import { Label, Button, TextInput, Textarea } from "flowbite-react";
+import { Label, Button, TextInput, Textarea, Alert } from "flowbite-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
+  const [alert, setAlert] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,18 +24,29 @@ export default function Contact() {
           from_name: form.name,
           to_name: "Alex",
           from_email: form.email,
-          to_email: "alekseiivankov8787@gmail.com",
+          to_email: "",
           message: form.message,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
         setIsLoading(false);
-        setForm({ name: "", email: "", message: "" });
+        setSuccessMessage("Message envoyé avec succès!");
+        setTimeout(() => {
+          setSuccessMessage("");
+          setForm({ name: "", email: "", message: "" });
+        }, 3000);
       })
       .catch((error) => {
-        setIsLoading(true);
+        setIsLoading(false);
         console.log(error);
+        setAlert(
+          `Une erreur s'est produite: ${error.message ?? "Erreur inconnue"}`
+        );
+        setTimeout(() => {
+          setAlert("");
+          setForm({ name: "", email: "", message: "" });
+        }, 3000);
       });
   };
 
@@ -107,6 +120,16 @@ export default function Contact() {
             </Button>
           </form>
         </section>
+        {successMessage && (
+          <Alert className="text-xl w-3/5 h-auto m-auto">
+            {successMessage}
+          </Alert>
+        )}
+        {alert && (
+          <Alert className="text-xl w-3/5 h-auto m-auto" color="failure">
+            {alert}
+          </Alert>
+        )}
       </div>
     </div>
   );

@@ -27,12 +27,13 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/preventif" element={<Preventif />} />
         </Route>
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/update-post/:postId" element={<UpdatePost />} />
         </Route>
-        <Route path="/preventif" element={<Preventif />} />
+
         <Route path="/contact" element={<Contact />} />
         <Route path="/post/:postSlug" element={<PostPage />} />
       </Routes>

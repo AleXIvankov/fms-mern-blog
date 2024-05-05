@@ -11,15 +11,15 @@ export default function FooterCom() {
             rel="noopener noreferrer"
             className=" hover:text-sky-800 no-underline hover:underline"
           >
-            Retour
+            Home
           </Footer.Link>
           <Footer.Link
-            href="/"
+            href="/contact"
             target="_blanc"
             rel="noopener noreferrer"
             className=" hover:text-sky-800 no-underline hover:underline"
           >
-            Contacts
+            Contact
           </Footer.Link>
         </Footer.LinkGroup>
         <Footer.Divider />
